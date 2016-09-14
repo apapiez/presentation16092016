@@ -1,0 +1,161 @@
+\documentclass[11pt]{beamer}
+\usetheme{CambridgeUS}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Alexander Papiez}
+\title{September Presentation}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+\date{Friday 16$^{th}$ September, 2016} 
+%\subject{}
+%%%%%%%%%%%%%%%%%%% MACRO DEFINITIONS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%============================== Document macro =======================================
+\newcommand{\doc}[1]{%
+                    \begin{document}
+                    #1
+                    \end{document}}
+%=====================================================================================                    
+                    
+%======================= NICER ITEMIZE/ENUMERATE SYNTAX ==============================
+\newcommand{\ol}[1]{\begin{enumerate}#1\end{enumerate}}
+\newcommand{\ul}[1]{\begin{itemize}#1\end{itemize}}
+\newcommand{\li}[1]{\item {#1}}
+\newlength{\shiftwidth}
+\setlength{\shiftwidth}{3em}
+\newcommand{\info}[1]{\par\hspace*{#1\shiftwidth}$\bullet$\quad}
+%=====================================================================================
+
+%========================== NICER IMAGE INCLUDE SYNTAX================================
+\newcommand{\fig}[2]{%
+						 \begin{figure}
+						     \centering\includegraphics[#1]{#2}
+						     \label{fig:#2}
+						 \end{figure}}
+\newcommand{\figc}[3]{%
+						  \begin{figure}
+						      \centering\includegraphics[#1]{#2}
+						      \caption{\footnotesize #3}
+						      \label{fig:#2}
+						  \end{figure}}
+%=====================================================================================
+
+%============================= LAZY MULTIICOL ENVIRONMENT ============================
+\newcommand{\mcol}[2]{%
+                     \begin{multicols}{#1}
+                     #2
+                     \end{multicols}
+                     }
+%=====================================================================================
+
+%============================== Shorter vspace ======================================
+\newcommand{\vs}[1]{%
+                   \vspace{#1}
+                   }
+\newcommand{\vst}[1]{%
+                    \vspace*{#1}
+                    }
+%===================================================================================
+
+%============================== Lazy frame =========================================
+\newcommand{\f}[1]{%
+                  \begin{frame}
+                  #1
+                  \end{frame}
+                  }
+\newcommand{\ft}[2]{%
+				   \begin{frame}{#1}
+				   #2
+				   \end{frame}
+				   }
+%=================================================================================== 
+
+%========================== Simple table ===========================================
+\newcommand{\tab}[2]{%
+				    \begin{table}[!htbp]
+				        \begin{tabular}{#1}\hline
+				            #2
+				        \end{tabular}
+				    \end{table}}
+					                   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\f{\titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\f{\tableofcontents}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ft{Introduction}{%
+Last time we met the following objectives were stated:\\
+\vspace{.76cm}
+
+\tab{|l | l|}{
+Goal & Status \\ \hline
+Basic ion exchange experiments for complex quats & Achieved \\ 
+Temperature vs diffusion coefficent studies & Achieved (mostly) \\ 
+Polymer film studies & In progress \\ 
+Provision of acrylamide beads to IP & In progress \\ \hline} \vspace{0.4cm}
+
+\ul{%
+	\li{Ion exchange studies themseles are now essentially complete, tough NMR analysis has been delayed}
+	\li{Polymr film studies are ongoing, and provision of acrylamide beads to IP will be done as soon as time permits}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Recap: the ion exchange experiment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ft{Recap: the ion exchange experiment}{%
+\ul{%
+	\li{The ion exchange experiment can be summarized as follows}
+}
+\mcol{2}{
+\fig{scale=0.22}{figs/ionexchange.pdf}
+\fig{trim={3cm, 19cm, 6cm, 4.5cm}, clip, scale=0.4}{drafts/exchangeprofiles.pdf}
+\vspace{-.30cm}
+\ul{
+	\setlength{\itemsep{0.2em}}
+	\setlength{\topsep{0.1pt}}
+	\li{We opt to measure the contents of the ion exchange resin}
+	\li{We can measure the sodium ion content (flame photometry) or quaternary ammonium ion content (qNMR spectroscopy)}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ft{Particle size analysis}{
+\fig{width=.85\textwidth}{figs/imageAnalysis.PNG}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ft{Model fitting}{
+We now examine which model best fits the ion exchange data \\ 
+
+\tab{|l l|}{
+Model Author & Model expression \\ \hline \rule{0pt}{3ex}
+Boyd (Sphere) & $F = 1 - \frac{6}{\pi^2} \sum^\infty_1 \frac{1}{n^2}e^{-D_i\pi^2n^2tr^{-2}}$ \\ \rule{0pt}{6ex}
+Boyd (Slab) & $F = 1 - \frac{8}{\pi^2}\sum^\infty_1\frac{1}{(2n-1)^2}e^{-(2n-1)^2\pi^2D_it4r^-2_0}$ \\ \rule{0pt}{6ex} 
+Diffusion in a bounding film & $log(1-F) = \frac{(\frac{3D_i}{r_0(\Delta r_0)\kappa})}{2.303}t$ \\ \rule{0pt}{6ex}
+Hellferich & $F(t) = \sqrt{1-e^{\pi^2f_1(\alpha)t + f_2(\alpha)t^2 + f_3(\alpha)t^3}}$ \\ 
+\hline}
+%
+\ul{
+	\setlength{\topsep}{0pt}
+	\setlength{\itemsep}{0.2em}
+	\li{don't whine}
+}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ion exchange data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ft{$R\bar{NMe_4} + Na^+ \leftrightarrow R\bar{Na} + NMe_4^+$ exchange}{}
+
+\end{document}
